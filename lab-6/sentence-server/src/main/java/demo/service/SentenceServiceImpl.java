@@ -1,6 +1,7 @@
 package demo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import demo.dao.WordDao;
@@ -37,29 +38,34 @@ public class SentenceServiceImpl implements SentenceService {
 
 
 	@Autowired
+    @Qualifier("subjectDaoImpl")
 	public void setVerbService(WordDao verbService) {
 		this.verbService = verbService;
 	}
 
 	@Autowired
+    @Qualifier("subjectDaoImpl")
 	public void setSubjectService(WordDao subjectService) {
 		this.subjectService = subjectService;
 	}
 
 	@Autowired
+    @Qualifier("articleDaoImpl")
 	public void setArticleService(WordDao articleService) {
 		this.articleService = articleService;
 	}
 
 	@Autowired
+    @Qualifier("adjectiveDaoImpl")
 	public void setAdjectiveService(WordDao adjectiveService) {
 		this.adjectiveService = adjectiveService;
 	}
 
 	@Autowired
+    @Qualifier("nounDaoImpl")
 	public void setNounService(WordDao nounService) {
 		this.nounService = nounService;
-	}	
+	}
 	
 	
 }
