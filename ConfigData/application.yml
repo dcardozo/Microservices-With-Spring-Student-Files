@@ -30,3 +30,9 @@ spring:
   profiles: noun
 words: boat,book,vote,seat,backpack,partition,groundhog
   
+---
+# Spring profile to execute lab-5 Bonus without hard-coding values in WordController.
+spring:
+  profiles: cold-nouns
+words: icicle,refrigerator,blizzard,snowball
+  
