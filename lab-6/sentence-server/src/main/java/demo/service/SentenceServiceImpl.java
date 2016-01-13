@@ -1,10 +1,13 @@
 package demo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import demo.dao.WordDao;
+import demo.dao.AdjectiveClient;
+import demo.dao.ArticleClient;
+import demo.dao.NounClient;
+import demo.dao.SubjectClient;
+import demo.dao.VerbClient;
 
 /**
  * Build a sentence by assembling randomly generated subjects, verbs, 
@@ -14,11 +17,11 @@ import demo.dao.WordDao;
 @Service
 public class SentenceServiceImpl implements SentenceService {
 
-	private WordDao verbService;
-	private WordDao subjectService;
-	private WordDao articleService;
-	private WordDao adjectiveService;
-	private WordDao nounService;
+	private VerbClient verbService;
+	private SubjectClient subjectService;
+	private ArticleClient articleService;
+	private AdjectiveClient adjectiveService;
+	private NounClient nounService;
 	
 
 	/**
@@ -38,32 +41,27 @@ public class SentenceServiceImpl implements SentenceService {
 
 
 	@Autowired
-    @Qualifier("subjectDaoImpl")
-	public void setVerbService(WordDao verbService) {
+	public void setVerbService(VerbClient verbService) {
 		this.verbService = verbService;
 	}
 
 	@Autowired
-    @Qualifier("subjectDaoImpl")
-	public void setSubjectService(WordDao subjectService) {
+	public void setSubjectService(SubjectClient subjectService) {
 		this.subjectService = subjectService;
 	}
 
 	@Autowired
-    @Qualifier("articleDaoImpl")
-	public void setArticleService(WordDao articleService) {
+	public void setArticleService(ArticleClient articleService) {
 		this.articleService = articleService;
 	}
 
 	@Autowired
-    @Qualifier("adjectiveDaoImpl")
-	public void setAdjectiveService(WordDao adjectiveService) {
+	public void setAdjectiveService(AdjectiveClient adjectiveService) {
 		this.adjectiveService = adjectiveService;
 	}
 
 	@Autowired
-    @Qualifier("nounDaoImpl")
-	public void setNounService(WordDao nounService) {
+	public void setNounService(NounClient nounService) {
 		this.nounService = nounService;
 	}
 	
