@@ -9,11 +9,11 @@
     	<div class="starter-template">
         	<h1>Dynamically Generated Sentence</h1>
         	<p class="lead">A sentence goes here:
-        	<span id="subject"/> 
-        	<span id="displayVerb"/> 
-        	<span id="displayArticle"/> 
-        	<span id="displayAdjective"/> 
-        	<span id="displayNoun"/> 
+        	<span id="subject"/>
+        	<span id="verb"/>
+        	<span id="article"/>
+        	<span id="adjective"/>
+        	<span id="noun"/>
         	</p>
       	</div>
     	<div id="error" class="text-danger">
@@ -27,12 +27,15 @@
 
 <script type="text/javascript">
 	
+	//	TODO: Alter this prefix when instructed.
+	var prefix = "/services";
+
 	// Perform AJAX requests...
-	$.getJSON("/subject",   null, displaySubject)  .fail(displayErrorSubject);
-	$.getJSON("/verb",      null, displayVerb)     .fail(displayErrorVerb);
-	$.getJSON("/article",   null, displayArticle)  .fail(displayErrorArticle);
-	$.getJSON("/adjective", null, displayAdjective).fail(displayErrorAdjective);
-	$.getJSON("/noun",      null, displayNoun)     .fail(displayErrorNoun);
+	$.getJSON(prefix + "/subject",   null, displaySubject)  .fail(displayErrorSubject);
+	$.getJSON(prefix + "/verb",      null, displayVerb)     .fail(displayErrorVerb);
+	$.getJSON(prefix + "/article",   null, displayArticle)  .fail(displayErrorArticle);
+	$.getJSON(prefix + "/adjective", null, displayAdjective).fail(displayErrorAdjective);
+	$.getJSON(prefix + "/noun",      null, displayNoun)     .fail(displayErrorNoun);
 	
 	//	Handle Success:
 
@@ -41,7 +44,7 @@
 	}
 	
 	function displayVerb(results) {
-		$("#results").html(results.word);
+		$("#verb").html(results.word);
 	}
 	
 	function displayArticle(results) {
